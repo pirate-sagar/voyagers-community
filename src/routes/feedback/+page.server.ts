@@ -10,7 +10,7 @@ import { fail } from '@sveltejs/kit';
 import { and, eq, sql } from 'drizzle-orm';
 import type { Actions, PageServerLoad } from './$types';
 
-const adminEmails = ['admin@example.com']; // Add admin emails here
+const adminEmails = ['admin@example.com', 'pir8sagar@gmail.com']; // Add admin emails here - update this with actual admin emails
 
 export const load: PageServerLoad = async ({ locals }) => {
 	const bugReports = await db

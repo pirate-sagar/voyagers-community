@@ -2,7 +2,7 @@
 	import { enhance } from '$app/forms';
 	import type { PageData } from './$types';
 
-	export let data: PageData;
+	let { data } = $props();
 </script>
 
 <svelte:head>
