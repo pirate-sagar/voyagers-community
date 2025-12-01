@@ -35,7 +35,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 			user: {
 				username: userSchema.username
 			},
-			upvotes: sql<number>`count(${featureRequestUpvote.id})`
+			upvotes: sql<number>`CAST(COUNT(${featureRequestUpvote.id}) AS INTEGER)`
 		})
 		.from(featureRequest)
 		.leftJoin(userSchema, eq(featureRequest.userId, userSchema.id))

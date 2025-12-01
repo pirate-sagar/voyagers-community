@@ -2,8 +2,9 @@
     import '../app.css';
     import favicon from '$lib/assets/favicon.svg';
     import { page } from '$app/stores';
+    import { enhance } from '$app/forms';
     import { onMount } from 'svelte';
-    import { Home, LogOut, Menu, MessageCircle, Sparkles } from 'lucide-svelte';
+    import { Home, LogOut, Menu, MessageCircle, Sparkles, Loader2 } from 'lucide-svelte';
 
     type NavLink = {
         href: string;
@@ -24,6 +25,7 @@
 
     let mobileMenuOpen = $state(false);
     let mobileMenuContainer: HTMLDivElement | null = null;
+    let isLoggingOut = $state(false);
 
     function isActiveRoute(href: string) {
         if (href === '/') {
@@ -51,6 +53,14 @@
 
     function closeMobileMenu() {
         mobileMenuOpen = false;
+    }
+
+    function handleLogout() {
+        isLoggingOut = true;
+        return async ({ update }: { update: () => Promise<void> }) => {
+            await update();
+            isLoggingOut = false;
+        };
     }
 
     onMount(() => {
@@ -147,10 +157,19 @@
                         <span class="text-xs font-medium text-base-content/60">Welcome back</span>
                         <span class="text-sm font-semibold text-base-content">{user.username}</span>
                     </div>
-                    <form method="POST" action="/auth?/logout" class="contents">
-                        <button type="submit" class="btn btn-outline btn-error btn-sm">
-                            <LogOut class="h-4 w-4" />
-                            <span class="hidden sm:inline">Logout</span>
+                    <form method="POST" action="/auth?/logout" use:enhance={handleLogout} class="contents">
+                        <button 
+                            type="submit" 
+                            disabled={isLoggingOut}
+                            class="btn btn-outline btn-error btn-sm gap-1.5 disabled:opacity-70"
+                        >
+                            {#if isLoggingOut}
+                                <Loader2 class="h-4 w-4 animate-spin" />
+                                <span class="hidden sm:inline">Logging out...</span>
+                            {:else}
+                                <LogOut class="h-4 w-4" />
+                                <span class="hidden sm:inline">Logout</span>
+                            {/if}
                         </button>
                     </form>
                 {:else}
