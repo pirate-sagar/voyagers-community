@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowRight, Lightbulb, Bug, MessageCircle, CheckCircle2, TrendingUp } from 'lucide-svelte';
+	import { ArrowRight, Lightbulb, Bug, TrendingUp, Github, Sparkles } from 'lucide-svelte';
 
 	let { data } = $props();
 </script>
@@ -8,39 +8,39 @@
 	<title>Voyagers Community - Share Your Feedback</title>
 </svelte:head>
 
-<div class="flex flex-col gap-16 py-12 sm:py-20 lg:py-28">
+<div class="flex flex-col gap-20 py-16 sm:py-24">
 	<!-- Hero Section -->
 	<section class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-		<div class="space-y-6 text-center">
-			<div class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 px-4 py-2 dark:from-blue-950 dark:to-purple-950">
-				<span class="flex h-2 w-2 rounded-full bg-green-500"></span>
-				<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Community-Driven Development</span>
+		<div class="space-y-8 text-center">
+			<div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2">
+				<Github class="h-4 w-4 text-primary" />
+				<span class="text-sm font-medium text-base-content/80">Open Source Project</span>
 			</div>
 
-			<h1 class="text-5xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:text-7xl">
+			<h1 class="text-5xl font-bold tracking-tight text-base-content sm:text-6xl lg:text-7xl">
 				Shape the Future
-				<span class="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+				<span class="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
 					Together
 				</span>
 			</h1>
 
-			<p class="mx-auto max-w-2xl text-xl text-slate-600 dark:text-slate-400">
-				Your voice matters. Report bugs, request features, and vote on what matters most to our community. Let's build something amazing together.
+			<p class="mx-auto max-w-2xl text-xl text-base-content/70">
+				Your voice matters. Report bugs, request features, and vote on what matters most. A simple, open-source feedback platform for communities.
 			</p>
 
 			<div class="flex flex-col gap-4 sm:flex-row sm:justify-center">
 				{#if data.user}
 					<a
 						href="/feedback"
-						class="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 text-base font-medium text-white shadow-lg transition-all hover:shadow-xl hover:from-blue-600 hover:to-purple-700"
+						class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-4 text-base font-semibold text-primary-content shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30"
 					>
 						Go to Feedback
 						<ArrowRight class="h-5 w-5" />
 					</a>
 				{:else}
 					<a
-						href="/demo/lucia/login"
-						class="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 text-base font-medium text-white shadow-lg transition-all hover:shadow-xl hover:from-blue-600 hover:to-purple-700"
+						href="/auth/login"
+						class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-4 text-base font-semibold text-primary-content shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30"
 					>
 						Get Started
 						<ArrowRight class="h-5 w-5" />
@@ -48,7 +48,7 @@
 				{/if}
 				<a
 					href="#features"
-					class="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-8 py-4 text-base font-medium text-slate-900 transition-all hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
+					class="inline-flex items-center justify-center gap-2 rounded-full border border-base-300 bg-base-100 px-8 py-4 text-base font-semibold text-base-content transition-all hover:border-base-400 hover:bg-base-200"
 				>
 					Learn More
 				</a>
@@ -60,67 +60,75 @@
 	<section id="features" class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="space-y-12">
 			<div class="text-center">
-				<h2 class="text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
+				<span class="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/5 px-4 py-1.5 text-sm font-medium text-secondary">
+					<Sparkles class="h-4 w-4" />
+					Features
+				</span>
+				<h2 class="mt-4 text-4xl font-bold text-base-content sm:text-5xl">
 					How It Works
 				</h2>
-				<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
-					Easy, transparent, and community-focused
+				<p class="mt-4 text-lg text-base-content/70">
+					Simple, transparent, and community-focused
 				</p>
 			</div>
 
-			<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				<!-- Feature 1 -->
-				<div class="group rounded-xl border border-slate-200 bg-white p-8 transition-all hover:border-slate-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
-					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-950 dark:to-blue-900">
-						<Bug class="h-6 w-6 text-blue-600 dark:text-blue-400" />
+				<div class="group rounded-2xl border border-base-200 bg-base-100 p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-base-300 hover:shadow-lg">
+					<div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-info/10">
+						<Bug class="h-7 w-7 text-info" />
 					</div>
-					<h3 class="mb-2 text-lg font-bold text-slate-900 dark:text-white">Report Bugs</h3>
-					<p class="text-slate-600 dark:text-slate-400">
-						Found an issue? Tell us about it with detailed descriptions and help us squash those bugs.
+					<h3 class="mb-3 text-xl font-bold text-base-content">Report Bugs</h3>
+					<p class="text-base-content/70">
+						Found an issue? Tell us about it with detailed descriptions and help us squash those bugs quickly.
 					</p>
 				</div>
 
 				<!-- Feature 2 -->
-				<div class="group rounded-xl border border-slate-200 bg-white p-8 transition-all hover:border-slate-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
-					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-950 dark:to-purple-900">
-						<Lightbulb class="h-6 w-6 text-purple-600 dark:text-purple-400" />
+				<div class="group rounded-2xl border border-base-200 bg-base-100 p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-base-300 hover:shadow-lg">
+					<div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary/10">
+						<Lightbulb class="h-7 w-7 text-secondary" />
 					</div>
-					<h3 class="mb-2 text-lg font-bold text-slate-900 dark:text-white">Request Features</h3>
-					<p class="text-slate-600 dark:text-slate-400">
-						Got a brilliant idea? Share it with the community and watch it come to life.
+					<h3 class="mb-3 text-xl font-bold text-base-content">Request Features</h3>
+					<p class="text-base-content/70">
+						Got a brilliant idea? Share it with the community and watch it come to life through collaboration.
 					</p>
 				</div>
 
 				<!-- Feature 3 -->
-				<div class="group rounded-xl border border-slate-200 bg-white p-8 transition-all hover:border-slate-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
-					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-100 to-emerald-200 dark:from-emerald-950 dark:to-emerald-900">
-						<TrendingUp class="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
+				<div class="group rounded-2xl border border-base-200 bg-base-100 p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-base-300 hover:shadow-lg">
+					<div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-success/10">
+						<TrendingUp class="h-7 w-7 text-success" />
 					</div>
-					<h3 class="mb-2 text-lg font-bold text-slate-900 dark:text-white">Vote & Support</h3>
-					<p class="text-slate-600 dark:text-slate-400">
-						Upvote features you love and show developers what the community wants most.
+					<h3 class="mb-3 text-xl font-bold text-base-content">Vote & Prioritize</h3>
+					<p class="text-base-content/70">
+						Upvote features you love and help developers understand what the community wants most.
 					</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Stats Section -->
+	<!-- Open Source Banner -->
 	<section class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-		<div class="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 text-white dark:from-slate-950 dark:to-slate-900 sm:p-12">
-			<div class="grid gap-8 sm:grid-cols-3">
-				<div class="text-center">
-					<div class="text-4xl font-bold sm:text-5xl">2.5K+</div>
-					<p class="mt-2 text-slate-300">Active Members</p>
-				</div>
-				<div class="text-center">
-					<div class="text-4xl font-bold sm:text-5xl">1.2K+</div>
-					<p class="mt-2 text-slate-300">Feedback Items</p>
-				</div>
-				<div class="text-center">
-					<div class="text-4xl font-bold sm:text-5xl">85+</div>
-					<p class="mt-2 text-slate-300">Features Shipped</p>
-				</div>
+		<div class="rounded-3xl border border-base-200 bg-gradient-to-br from-base-100 via-base-100 to-primary/5 p-10 text-center shadow-sm sm:p-14">
+			<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-base-content/5">
+				<Github class="h-8 w-8 text-base-content" />
+			</div>
+			<h2 class="mt-6 text-3xl font-bold text-base-content sm:text-4xl">Open Source</h2>
+			<p class="mx-auto mt-4 max-w-xl text-lg text-base-content/70">
+				This project is fully open source. Contribute, fork, or self-host it for your own community. Built with SvelteKit and designed for simplicity.
+			</p>
+			<div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+				<a
+					href="https://github.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center justify-center gap-2 rounded-full border border-base-300 bg-base-100 px-6 py-3 text-sm font-semibold text-base-content transition-all hover:border-base-400 hover:bg-base-200"
+				>
+					<Github class="h-5 w-5" />
+					View on GitHub
+				</a>
 			</div>
 		</div>
 	</section>
@@ -128,14 +136,14 @@
 	<!-- CTA Section -->
 	{#if !data.user}
 		<section class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-center text-white sm:p-12">
-				<h2 class="text-3xl font-bold sm:text-4xl">Ready to Make an Impact?</h2>
-				<p class="mt-4 text-lg text-blue-100">
-					Join thousands of community members shaping the future of our product
+			<div class="rounded-3xl bg-gradient-to-r from-primary to-secondary p-10 text-center text-primary-content shadow-xl shadow-primary/20 sm:p-14">
+				<h2 class="text-3xl font-bold sm:text-4xl">Ready to Get Started?</h2>
+				<p class="mt-4 text-lg text-primary-content/80">
+					Join the community and start sharing your feedback today
 				</p>
 				<a
-					href="/demo/lucia/login"
-					class="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3 font-medium text-blue-600 shadow-lg transition-all hover:shadow-xl"
+					href="/auth/login"
+					class="mt-8 inline-flex items-center gap-2 rounded-full bg-base-100 px-8 py-3 font-semibold text-primary shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
 				>
 					Sign In Now
 					<ArrowRight class="h-5 w-5" />
